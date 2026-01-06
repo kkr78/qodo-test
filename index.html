@@ -9,7 +9,10 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>My Tasks</h1>
+            <div class="header-top">
+                <h1>My Tasks</h1>
+                <button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
             <p class="subtitle">Stay organized and productive</p>
         </header>
 
@@ -22,13 +25,35 @@
                     placeholder="Add a new task..."
                     autocomplete="off"
                 />
+                <select id="prioritySelect" class="priority-select">
+                    <option value="medium">Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <input
+                    type="date"
+                    id="dueDateInput"
+                    class="date-input"
+                />
                 <button id="addBtn" class="add-btn">Add Task</button>
+            </div>
+
+            <div class="search-section">
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search tasks..."
+                    autocomplete="off"
+                />
             </div>
 
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="active">Active</button>
                 <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="overdue">Overdue</button>
             </div>
 
             <ul id="taskList" class="task-list">
@@ -36,7 +61,10 @@
             </ul>
 
             <div class="stats">
-                <span id="taskCount">0 tasks</span>
+                <div class="stats-left">
+                    <span id="taskCount">0 tasks</span>
+                    <span id="statsDetail"></span>
+                </div>
                 <button id="clearBtn" class="clear-btn">Clear Completed</button>
             </div>
         </main>
